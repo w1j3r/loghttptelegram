@@ -3,7 +3,7 @@
 Once request received service log request to file and send Telegram message.
 
 ## Setting up
-1. Set telegram bot api and telegram chat id in `index.php`
+1. Set telegram bot api key and telegram chat id in `index.php`
 2. Upload files to your server.
 3. Done! No more setup required.
 
