@@ -19,7 +19,7 @@ function send_message_telegram($msg) {
 
 function loghttp($targetFile) {
 	$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-    $at = date("h:i:sa");
+	$at = date("h:i:sa");
 	$data = sprintf(
 		"FROM:%s\tAT:%s\n\n%s %s %s\n\nHTTP headers:\n",
 		$ip,
@@ -44,18 +44,14 @@ function loghttp($targetFile) {
 
 	$data .= "\nRequest body:\n".$body;
     
-    $fp = fopen($targetFile, 'a');
+    	$fp = fopen($targetFile, 'a');
 	fwrite($fp, $data . "\n");
 	fclose($fp);
     
-    send_message_telegram($data);
+    	send_message_telegram($data);
 
 	echo("<h2>Logged ...</h2>");
 }
 
-
 loghttp("dumprequest.txt");
-
-
-
 ?>
